@@ -1,0 +1,67 @@
+.row {
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  input {
+    width: 50%;
+  }
+
+  span {
+    padding-left: 17px;
+
+    &::before {
+      content: ">";
+      padding-right: 15px;
+      user-select: none;
+    }
+  }
+}
+
+.angular {
+  .row {
+    label, input, span {
+      font-family: "Source Code Pro",monospace;
+      font-size: 15px;
+    }
+
+    input {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.react {
+  .row {
+    label, input, span {
+      font-family: "Source Code Pro",monospace;
+      font-size: 18px;
+    }
+
+    label {
+      padding-left: 10px;
+      color: rgb(197, 165, 197);
+    }
+
+    input {
+      background: transparent;
+      border: 0;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 300;
+      padding: 5px 5px 5px 10px;
+      color: #ffffff;
+
+      &:focus {
+        outline: 0;
+        background-color: #373940;
+        border-radius: 0.25rem;
+      }
+    }
+
+    span {
+      color: rgb(121, 182, 242);
+    }
+  }
+}

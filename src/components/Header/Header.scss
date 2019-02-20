@@ -1,0 +1,32 @@
+header {
+  display: flex;
+  background-color: #20232a;
+
+  h3 {
+    font-family: "Roboto",Helvetica,sans-serif;
+    padding: 0 25px;
+  }
+}
+
+.angular {
+
+  header {
+    background-color: #f44336;
+
+    h3 {
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+  }
+}
+
+.react {
+  header {
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
+
+    h3 {
+      text-transform: capitalize;
+      color: #61dafb;
+    }
+  }
+}
