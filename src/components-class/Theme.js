@@ -1,15 +1,5 @@
 import React from 'react';
 
-export const themes = {
-  react: {
-    color: 'blue'
-  },
-  angular: {
-    color: 'red'
-  }
-};
+export const RedContext = React.createContext('red');
 
-
-export const ThemeContext = React.createContext(themes.react);
-
-export const LocaleContext = React.createContext('english');
+export const BlueContext = React.createContext('blue');

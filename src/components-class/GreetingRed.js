@@ -6,7 +6,8 @@ export default class GreetingRed extends Component {
     super(props)
     this.state = {
       branch: 'master',
-      version: '16.8.0'
+      version: '16.8.0',
+      width: window.innerWidth
     }
 
     this.handleBranchChange = this.handleBranchChange.bind(this)
@@ -25,12 +26,23 @@ export default class GreetingRed extends Component {
     })
   }
 
+  handleResize = () => {
+    this.setState({
+      width: window.innerWidth
+    })
+  }
+
   componentDidMount() {
     document.title = `Hooks version ${this.state.version} on ${this.state.branch} branch`
+    window.addEventListener('resize', this.handleResize)
   }
 
   componentDidUpdate() {
     document.title = `Hooks version ${this.state.version} on ${this.state.branch} branch`
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.handleResize)
   }
 
   render() {
@@ -43,12 +55,17 @@ export default class GreetingRed extends Component {
           />
           {this.state.branch && <span>{this.state.branch}</span>}
         </Row>
+
         <Row label="Version">
           <input
             value={this.state.version}
             onChange={this.handleVersionChange}
           />
           {this.state.version && <span>{this.state.version}</span>}
+        </Row>
+
+        <Row label="Width">
+          <span>{this.state.width}</span>
         </Row>
       </>
     )

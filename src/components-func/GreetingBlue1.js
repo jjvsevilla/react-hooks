@@ -5,10 +5,19 @@ import Row from '../components/Row';
 export default function GreetingBlue1() {
   const [branch, setBranch] = useState('master')
   const [version, setVersion] = useState('16.8.0')
+  const [width, setWidth] = useState(window.innerWidth)
 
   useEffect(() => {
     document.title = `Hooks version ${version} on ${branch} branch`
   }, [version, branch])
+
+  useEffect(() => {
+    const handleResize = () => setWidth(window.innerWidth)
+    window.addEventListener('resize', handleResize)
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  })
 
   function handleBranchChange(e) {
     setBranch(e.target.value)
@@ -27,12 +36,17 @@ export default function GreetingBlue1() {
         />
         {branch && <span>{branch}</span>}
       </Row>
+
       <Row label="Version">
         <input
           value={version}
           onChange={handleVersionChange}
         />
         {version && <span>{version}</span>}
+      </Row>
+
+      <Row label="Width">
+        <span>{width}</span>
       </Row>
     </>
   )
