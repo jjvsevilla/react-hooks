@@ -9,7 +9,6 @@ import { RedContext, BlueContext } from './components-class/Theme';
 import './App.scss';
 
 export default function View() {
-  const redTheme = useContext(RedContext)
   const blueTheme = useContext(BlueContext)
   return (
     <div className="app">
@@ -25,9 +24,9 @@ export default function View() {
       </RedContext.Consumer>
 
       <div className={blueTheme}>
-        <Header title="React Functional Component" />
+        <Header title="React Functional Component + Hooks" />
         <Section>
-          <GreetingBlue3 />
+          <GreetingBlue1 />
         </Section>
       </div>
     </div>
